@@ -15,7 +15,7 @@
 <div class="container">
   <h1>Elenco Email</h1>
   <div v-if="!httpError" class="content">
-    <ul>
+    <ol>
       <li
       v-for="email in emails"
       v-if="!isLoading"> <!--mostra se è true-->
@@ -24,7 +24,7 @@
       <h4 v-else >
       Loading...
       </h4>
-    </ul>
+    </ol>
   </div>
   <h4 v-else >404 NOT FOUND!</h4>
 </div>
