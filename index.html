@@ -1,51 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Document</title>
-</head>
-<body>
-  
-<div id="app">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- stampo a schermo le mail -->
+      <div class="container">
+        <h1>Elenco Email</h1>
+        <div v-if="!httpError" class="content">
+          <ol v-if="emails.length >= 10">
+            <li v-for="email in emails">{{email}}</li>
+          </ol>
+          <h4 v-else>Loading...</h4>
+        </div>
+        <h4 v-else>404 NOT FOUND!</h4>
+      </div>
+    </div>
 
-<!-- stampo a schermo le mail -->
-<div class="container">
-  <h1>Elenco Email</h1>
-  <div v-if="!httpError" class="content">
-    <ol>
-      <li
-      v-for="email in emails"
-      v-if="!isLoading"> <!--mostra se è true-->
-      {{email}}
-      </li>
-      <h4 v-else >
-      Loading...
-      </h4>
-    </ol>
-  </div>
-  <h4 v-else >404 NOT FOUND!</h4>
-</div>
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
-</div>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-
-
-
-
-
-
-
-
-  <!-- vue -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-
-  <!-- axios -->
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-  <!-- js -->
-  <script src="js/script.js"></script>
-</body>
+    <!-- js -->
+    <script src="js/script.js"></script>
+  </body>
 </html>

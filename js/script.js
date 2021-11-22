@@ -31,34 +31,36 @@ const app = new Vue({
     for (let i = 0; i < 10; i++) {
       axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
 
-     .then((response) =>{
-      //tutta la risposta
-      console.log('response',response);
-
-      // il JSON -> quello che a noi interessa
-      console.log('response.data',response.data);
-
-      //salvo,per comodità, in una variabile l'oggetto che a noi interessa
-      const data = response.data;
-
-      //in base a come è fatto ogni response.data prendiamo quello che ci serve
-      console.log('email:',data.response);
+      .then((response) => {
 
 
-      //pusho all'intero dell'array vuoto l'email
-      this.emails.push(data.response);
+        //tutta la risposta
+        console.log('response',response);
 
-      //ottenuta l'email verrà mostrata se è true,quindi diversa da se stessa
-      this.isLoading = false;
-    })
+        // il JSON -> quello che a noi interessa
+        console.log('response.data',response.data);
+
+        //salvo,per comodità, in una variabile l'oggetto che a noi interessa
+        const data = response.data;
+
+        //in base a come è fatto ogni response.data prendiamo quello che ci serve
+        console.log('email:',data.response);
+
+
+        //pusho all'intero dell'array vuoto l'email
+        this.emails.push(data.response);
+
+        
+      })
 
     
-    //se sbaglio indirizzo mi indica l'errore
-    .catch((error) =>{
-      console.log(error);
-      this.httpError = true;
-    })
+      //se sbaglio indirizzo mi indica l'errore
+      .catch((error) =>{
+        console.log(error);
+        this.httpError = true;
+      })
     }
+
     
   }
 
