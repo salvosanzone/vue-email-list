@@ -5,6 +5,8 @@ const app = new Vue({
   data: {
 
     email: '',
+    //di defaul non vedo l'email
+    isLoading: true,
 
   },
 
@@ -35,6 +37,9 @@ const app = new Vue({
 
       //al mio dato vuoto attribuisco una email proveniente dall'oggetto
       this.email = response.data.response;
+
+      //ottenuta l'email verrà mostrata se è true,quindi diversa da se stessa
+      this.isLoading = false;
     })
 
     //se sbaglio indirizzo mi indica l'errore

@@ -15,11 +15,14 @@
 <div class="container">
   <h1>Elenco Email</h1>
   <div class="content">
-    <ul>
-    <li>
+    <ol>
+    <li v-if="!isLoading">
       {{email}}
     </li>
-  </ul>
+    <h4 v-else >
+      Loading...
+    </h4>
+  </ol>
   </div>
   
 </div>
