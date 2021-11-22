@@ -4,9 +4,13 @@ const app = new Vue({
 
   data: {
 
-    email: '',
+    email: [],
     //di defaul non vedo l'email
     isLoading: true,
+
+    //in caso di errore
+    httpError: false,
+
 
   },
 
@@ -34,7 +38,6 @@ const app = new Vue({
       //in base a come è fatto ogni response.data prendiamo quello che ci serve
       console.log('email:',response.data.response);
 
-
       //al mio dato vuoto attribuisco una email proveniente dall'oggetto
       this.email = response.data.response;
 
@@ -45,6 +48,7 @@ const app = new Vue({
     //se sbaglio indirizzo mi indica l'errore
     .catch((error) =>{
       console.log(error);
+      this.httpError = true;
     })
 
   }

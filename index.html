@@ -14,17 +14,17 @@
 <!-- stampo a schermo le mail -->
 <div class="container">
   <h1>Elenco Email</h1>
-  <div class="content">
+  <div v-if="!httpError" class="content">
     <ol>
-    <li v-if="!isLoading">
+      <li v-if="!isLoading"> <!--mostra se è true-->
       {{email}}
-    </li>
-    <h4 v-else >
+      </li>
+      <h4 v-else >
       Loading...
-    </h4>
-  </ol>
+      </h4>
+    </ol>
   </div>
-  
+  <h4 v-else >404 NOT FOUND!</h4>
 </div>
 
 </div>
